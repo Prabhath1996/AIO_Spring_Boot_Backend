@@ -1,4 +1,4 @@
-package com.prabhath.AIO_Backend.token;
+package com.prabhath.AIO_Backend.Repository;
 import java.util.List;
 import java.util.Optional;
 

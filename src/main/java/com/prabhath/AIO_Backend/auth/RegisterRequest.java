@@ -1,4 +1,4 @@
-package com.prabhath.AIO_Backend.Request;
+package com.prabhath.AIO_Backend.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

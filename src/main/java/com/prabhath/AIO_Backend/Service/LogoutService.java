@@ -1,6 +1,6 @@
-package com.prabhath.websecurity.service;
+package com.prabhath.AIO_Backend.Service;
 
-import com.prabhath.websecurity.token.TokenRepository;
+import com.prabhath.AIO_Backend.Repository.TokenRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;

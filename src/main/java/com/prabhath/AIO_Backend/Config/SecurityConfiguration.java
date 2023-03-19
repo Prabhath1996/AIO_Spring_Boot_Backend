@@ -1,5 +1,6 @@
-package com.prabhath.websecurity.config;
+package com.prabhath.AIO_Backend.Config;
 
+import com.prabhath.AIO_Backend.Config.Filter.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

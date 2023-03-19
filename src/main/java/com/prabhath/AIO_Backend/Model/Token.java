@@ -1,6 +1,6 @@
-package com.prabhath.AIO_Backend.token;
+package com.prabhath.AIO_Backend.Model;
 
-import com.prabhath.AIO_Backend.model.User;
+import com.prabhath.AIO_Backend.Model.Enum.TokenType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

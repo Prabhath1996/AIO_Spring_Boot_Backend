@@ -1,4 +1,4 @@
-package com.prabhath.AIO_Backend.Config;
+package com.prabhath.AIO_Backend.Config.Source;
 
 import com.prabhath.AIO_Backend.Model.TenantContext;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;

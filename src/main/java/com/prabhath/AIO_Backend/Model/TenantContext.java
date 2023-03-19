@@ -1,4 +1,4 @@
-package com.prabhath.websecurity.model;
+package com.prabhath.AIO_Backend.Model;
 
 public class TenantContext {
     private static final ThreadLocal<String> CURRENT_TENANT = new ThreadLocal<>();

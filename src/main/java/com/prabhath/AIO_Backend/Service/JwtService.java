@@ -1,4 +1,4 @@
-package com.prabhath.websecurity.service;
+package com.prabhath.AIO_Backend.Service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -8,12 +8,10 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import java.awt.image.Kernel;
 import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import java.util.function.Function;
 
 @Service

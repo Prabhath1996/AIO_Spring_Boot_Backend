@@ -1,4 +1,4 @@
-package com.prabhath.AIO_Backend.demo;
+package com.prabhath.AIO_Backend.Controller.demo;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

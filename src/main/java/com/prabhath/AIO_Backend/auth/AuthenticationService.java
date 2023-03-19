@@ -1,14 +1,12 @@
-package com.prabhath.AIO_Backend.Service;
+package com.prabhath.AIO_Backend.auth;
 
 
 import com.prabhath.AIO_Backend.Model.User;
 import com.prabhath.AIO_Backend.Repository.UserRepository;
+import com.prabhath.AIO_Backend.Service.JwtService;
 import com.prabhath.AIO_Backend.Model.Token;
 import com.prabhath.AIO_Backend.Repository.TokenRepository;
-import com.prabhath.AIO_Backend.Model.TokenType;
-import com.prabhath.AIO_Backend.Request.AuthenticationRequest;
-import com.prabhath.AIO_Backend.Request.AuthenticationResponse;
-import com.prabhath.AIO_Backend.Request.RegisterRequest;
+import com.prabhath.AIO_Backend.Model.Enum.TokenType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

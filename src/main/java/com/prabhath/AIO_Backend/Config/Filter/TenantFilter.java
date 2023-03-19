@@ -1,4 +1,4 @@
-package com.prabhath.AIO_Backend.Config;
+package com.prabhath.AIO_Backend.Config.Filter;
 
 import com.prabhath.AIO_Backend.Model.TenantContext;
 import jakarta.servlet.*;

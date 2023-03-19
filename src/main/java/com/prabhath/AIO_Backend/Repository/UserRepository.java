@@ -1,6 +1,6 @@
-package com.prabhath.websecurity.repository;
+package com.prabhath.AIO_Backend.Repository;
 
-import com.prabhath.websecurity.model.User;
+import com.prabhath.AIO_Backend.Model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

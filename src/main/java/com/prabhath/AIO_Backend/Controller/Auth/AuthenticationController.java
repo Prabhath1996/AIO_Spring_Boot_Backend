@@ -1,5 +1,9 @@
-package com.prabhath.AIO_Backend.auth;
+package com.prabhath.AIO_Backend.Controller.Auth;
 
+import com.prabhath.AIO_Backend.auth.AuthenticationRequest;
+import com.prabhath.AIO_Backend.auth.AuthenticationResponse;
+import com.prabhath.AIO_Backend.auth.AuthenticationService;
+import com.prabhath.AIO_Backend.auth.RegisterRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

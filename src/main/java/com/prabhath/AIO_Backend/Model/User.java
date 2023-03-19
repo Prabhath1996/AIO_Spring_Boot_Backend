@@ -1,4 +1,4 @@
-package com.prabhath.websecurity.model;
+package com.prabhath.AIO_Backend.Model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

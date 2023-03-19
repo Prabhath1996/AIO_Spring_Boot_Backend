@@ -1,19 +1,17 @@
-package com.prabhath.websecurity.config;
+package com.prabhath.AIO_Backend.Config;
 
+import com.prabhath.AIO_Backend.Config.Source.MultitenantDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 import javax.sql.DataSource;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -22,12 +20,14 @@ import java.util.Properties;
 public class MultitenantConfiguration {
     @Value("${defaultTenant}")
     private String defaultTenant;
+    @Value("${tenantsPropertiesPath}")
+    private String TenantsPropertiesPath;
 
 
     @Bean
     @ConfigurationProperties(prefix = "tenants")
     public DataSource dataSource() {
-        File[] files = Paths.get("src/main/java/com/prabhath/websecurity/allTenants").toFile().listFiles();
+        File[] files = Paths.get(TenantsPropertiesPath).toFile().listFiles();
         Map<Object, Object> resolvedDataSources = new HashMap<>();
 
         try {
@@ -49,16 +49,9 @@ public class MultitenantConfiguration {
         System.out.println("defaultTenant  : "+defaultTenant);
         dataSource.setDefaultTargetDataSource(resolvedDataSources.get(defaultTenant));
         dataSource.setTargetDataSources(resolvedDataSources);
-
         dataSource.afterPropertiesSet();
-        System.out.println("dataSource  : "+resolvedDataSources);
+
         return dataSource;
 
-//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-//        dataSource.setUrl("jdbc:mysql://localhost:3307/erp");
-//        dataSource.setUsername("root");
-//        dataSource.setPassword("root");
-//        return dataSource;
     }
 }
