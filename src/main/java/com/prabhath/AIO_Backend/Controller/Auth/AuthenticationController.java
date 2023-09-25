@@ -29,7 +29,7 @@ public class AuthenticationController {
         return ResponseEntity.ok(service.authenticate(request));
     }
 
-    @PostMapping("/test")
+    @GetMapping("/test")
     public String test(){
         return "test api";
     }

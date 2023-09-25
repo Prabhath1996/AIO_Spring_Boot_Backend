@@ -1,5 +1,6 @@
 package com.prabhath.AIO_Backend.Config.Filter;
 
+import com.prabhath.AIO_Backend.Model.TenantContext;
 import com.prabhath.AIO_Backend.Service.JwtService;
 import com.prabhath.AIO_Backend.Repository.TokenRepository;
 import jakarta.servlet.FilterChain;
@@ -30,10 +31,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
      * See {@link #shouldNotFilterAsyncDispatch()} for details.
      * <p>Provides HttpServletRequest and HttpServletResponse arguments instead of the
      * default ServletRequest and ServletResponse ones.
-     *
-     * @param request
-     * @param response
-     * @param filterChain
      */
     @Override
     protected void doFilterInternal(
@@ -45,12 +42,21 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         final String authHeader = request.getHeader("Authorization");
         final String jwt;
         final String username;
+        final String tenant;
+
         if(authHeader ==null || !authHeader.startsWith("Bearer")){
             filterChain.doFilter(request, response);
             return;
         }
+
         jwt = authHeader.substring(7);
         username = jwtService.extractUsername(jwt);
+        tenant = jwtService.extractTenant(jwt);
+
+       // set current tenant
+        TenantContext.setCurrentTenant(tenant);
+        System.out.println("Tenant Set "+ tenant);
+
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
             var isTokenValid = tokenRepository.findByToken(jwt)

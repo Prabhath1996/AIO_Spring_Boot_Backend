@@ -1,5 +1,6 @@
 package com.prabhath.AIO_Backend.Service;
 
+import com.prabhath.AIO_Backend.Model.TenantContext;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -21,6 +22,10 @@ public class JwtService {
     public String extractUsername(String token) {
         return extractClaims(token, Claims::getSubject);
     }
+    public String extractTenant(String token) {
+        final Claims claims = extractAllClaims(token);
+        return (String) claims.get("tenant");
+    }
 
     public <T> T extractClaims(String token , Function<Claims,T> claimsResolver){
         final Claims claims = extractAllClaims(token);
@@ -33,6 +38,7 @@ public class JwtService {
             Map<String, Object> extraClaims,
             UserDetails userDetails
     ){
+        extraClaims.put("tenant", TenantContext.getCurrentTenant());
         return Jwts
                 .builder()
                 .setClaims(extraClaims)
